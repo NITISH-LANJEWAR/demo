@@ -8,7 +8,7 @@ WORKDIR /var/www/html
 RUN unzip primecare.zip
 RUN cp -rvf primecare/* .
 RUN rm -rf primecare primecare.zip
-CMD["/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80  
 
 
