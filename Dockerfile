@@ -1,8 +1,8 @@
 FROM centos:latest
 MAINTAINER nitish25lanjewar@gmail.com
-RUN yum install -y httpd \
-zip \
-unzip
+RUN yum install -y httpd 
+RUN yum install -y unzip
+RUN yum install -y zip 
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page294/primecare.zip  /var/www/html/
 WORKDIR /var/www/html 
 RUN unzip primecare.zip
