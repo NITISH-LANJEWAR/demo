@@ -1,14 +1,19 @@
-FROM centos:latest
-RUN yum install -y httpd 
+FROM centos:centos8
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.epel.cloud|g' /etc/yum.repos.d/CentOS-Linux-*
+RUN yum update -y
+RUN yum install -y httpd
 RUN yum install -y unzip
-RUN yum install -y zip 
+RUN yum install -y zip
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page294/primecare.zip  /var/www/html/
-WORKDIR /var/www/html 
+WORKDIR /var/www/html
 RUN unzip primecare.zip
 RUN cp -rvf primecare/* .
 RUN rm -rf primecare primecare.zip
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-EXPOSE 80  
+EXPOSE 80 
 
 
 
