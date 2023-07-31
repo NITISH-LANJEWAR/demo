@@ -10,8 +10,8 @@ RUN yum install -y zip
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page294/primecare.zip  /var/www/html/
 WORKDIR /var/www/html
 RUN unzip primecare.zip
-RUN cp -rvf primecare/* .
-RUN rm -rf primecare primecare.zip
+RUN cp -rvf primecare-html/* .
+RUN rm -rf primecare-html  primecare.zip
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80 
 
