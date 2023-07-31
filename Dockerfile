@@ -1,5 +1,4 @@
 FROM centos:latest
-MAINTAINER root@gmail.com
 RUN yum clean all && yum update -y
 RUN yum install -y httpd 
 RUN yum install -y unzip
