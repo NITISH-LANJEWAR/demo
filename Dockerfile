@@ -10,7 +10,6 @@ RUN yum install -y zip
 RUN echo "HI THIS IS KUBERNETES CLUSTER" > /var/www/html/index.html
 #ADD https://www.free-css.com/assets/files/free-css-templates/download/page294/primecare.zip  /var/www/html/
 WORKDIR /var/www/html
-RUN systemctl restart httpd
 #RUN unzip primecare.zip
 #RUN cp -rvf primecare-html/* .
 #RUN rm -rf primecare-html  primecare.zip
