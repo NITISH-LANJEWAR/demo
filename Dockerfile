@@ -7,11 +7,13 @@ RUN yum update -y
 RUN yum install -y httpd
 RUN yum install -y unzip
 RUN yum install -y zip
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page294/primecare.zip  /var/www/html/
+RUN echo "HI THIS IS KUBERNETES CLUSTER" > /var/www/html/index.html
+#ADD https://www.free-css.com/assets/files/free-css-templates/download/page294/primecare.zip  /var/www/html/
 WORKDIR /var/www/html
-RUN unzip primecare.zip
-RUN cp -rvf primecare-html/* .
-RUN rm -rf primecare-html  primecare.zip
+RUN systemctl restart httpd
+#RUN unzip primecare.zip
+#RUN cp -rvf primecare-html/* .
+#RUN rm -rf primecare-html  primecare.zip
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80 
 
