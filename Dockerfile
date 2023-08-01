@@ -7,6 +7,7 @@ RUN yum update -y
 RUN yum install -y httpd
 RUN yum install -y unzip
 RUN yum install -y zip
+RUN touch /var/www/html/index.html
 RUN echo "HI THIS IS KUBERNETES CLUSTER" > /var/www/html/index.html
 #ADD https://www.free-css.com/assets/files/free-css-templates/download/page294/primecare.zip  /var/www/html/
 WORKDIR /var/www/html
